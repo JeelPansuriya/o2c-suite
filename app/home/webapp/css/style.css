@@ -1,0 +1,13 @@
+.sapFCard {
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.sapFCard:hover {
+    transform: translateY(-5px);
+}
+
+.sapMPage {
+    background: #f5f7fa;
+}

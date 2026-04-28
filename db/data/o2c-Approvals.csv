@@ -1,0 +1,5 @@
+ID,approvalID,orderID,decision,remarks,approvedBy,approvedOn
+aaaa1111-1111-1111-1111-111111111111,APP1001,SO1001,Approved,Within credit limit,credit.manager@company.com,2026-04-01T10:00:00Z
+bbbb2222-2222-2222-2222-222222222222,APP1002,SO1002,Pending,Awaiting credit review,credit.manager@company.com,2026-04-01T10:00:00Z
+cccc3333-3333-3333-3333-333333333333,APP1003,SO1003,Approved,Good payment history,credit.manager@company.com,2026-04-05T11:30:00Z
+dddd4444-4444-4444-4444-444444444444,APP1004,SO1004,Rejected,Credit limit exceeded,credit.manager@company.com,2026-04-07T09:15:00Z

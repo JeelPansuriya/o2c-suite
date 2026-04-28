@@ -1,0 +1,12 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <App>
+        <pages>
+            <mvc:XMLView viewName="o2c.home.view.Home"/>
+        </pages>
+    </App>
+
+</mvc:View>

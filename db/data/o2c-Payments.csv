@@ -1,0 +1,3 @@
+ID,paymentID,invoiceID,amountPaid,paymentDate,paymentMode,paymentStatus
+aaaa3333-aaaa-3333-aaaa-333333333333,PAY1001,INV1002,8500.00,2026-04-10,BankTransfer,Completed
+bbbb4444-bbbb-4444-bbbb-444444444444,PAY1002,INV1001,5000.00,2026-04-15,UPI,Pending

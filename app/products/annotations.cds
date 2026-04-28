@@ -1,0 +1,1 @@
+using O2CService as service from '../../srv/o2c-service';

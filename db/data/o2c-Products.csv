@@ -1,0 +1,5 @@
+ID,productID,productName,category,price,stock,status
+aaaaaaaa-1111-1111-1111-aaaaaaaaaaaa,PROD1001,Laptop Pro 14,Electronics,1250.00,50,Active
+bbbbbbbb-2222-2222-2222-bbbbbbbbbbbb,PROD1002,Wireless Mouse,Accessories,25.00,500,Active
+cccccccc-3333-3333-3333-cccccccccccc,PROD1003,Office Desk,Furniture,300.00,80,Active
+dddddddd-4444-4444-4444-dddddddddddd,PROD1004,Printer X200,Electronics,450.00,20,Active

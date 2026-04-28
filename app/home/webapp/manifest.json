@@ -1,0 +1,20 @@
+{
+  "sap.app": {
+    "id": "o2c.home",
+    "type": "application",
+    "title": "Home"
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "o2c.home.view.Home",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "dependencies": {
+      "libs": {
+        "sap.m": {}
+      }
+    }
+  }
+}

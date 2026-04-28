@@ -1,0 +1,38 @@
+{
+  "name": "o2c-fiori-listreport",
+  "version": "1.0.0",
+  "description": "O2C SAP Fiori Elements List Report CRUD",
+  "private": true,
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch",
+    "deploy": "cds deploy --to sqlite",
+    "watch-orders": "cds watch --open o2c.orders/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-customers": "cds watch --open o2c.customers/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-products": "cds watch --open o2c.products/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-orderitems": "cds watch --open o2c.orderitems/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-approvals": "cds watch --open o2c.approvals/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-invoices": "cds watch --open o2c.invoices/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-payments": "cds watch --open o2c.payments/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "dependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds": "^9",
+    "express": "^5"
+  },
+  "devDependencies": {
+    "cds-plugin-ui5": "^0.13.0"
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/orders",
+    "app/customers",
+    "app/products",
+    "app/orderitems",
+    "app/approvals",
+    "app/invoices",
+    "app/payments"
+  ]
+}

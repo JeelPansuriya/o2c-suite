@@ -1,0 +1,13 @@
+{
+  "odata": {
+    "version": "v4"
+  },
+  "requires": {
+    "db": {
+      "kind": "sqlite",
+      "credentials": {
+        "url": "db.sqlite"
+      }
+    }
+  }
+}

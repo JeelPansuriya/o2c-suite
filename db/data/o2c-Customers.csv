@@ -1,0 +1,5 @@
+ID,customerID,customerName,email,phone,address,creditLimit,usedCredit,status
+aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa,CUST1001,ABC Retail Pvt Ltd,ar@abc-retail.com,+91-9000000001,Mumbai India,50000.00,12500.00,Active
+bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb,CUST1002,Global Traders,finance@global-traders.com,+91-9000000002,Delhi India,30000.00,28500.00,Active
+cccccccc-cccc-cccc-cccc-cccccccccccc,CUST1003,Northwind Stores,ap@northwind.com,+91-9000000003,Bengaluru India,75000.00,8500.00,Active
+dddddddd-dddd-dddd-dddd-dddddddddddd,CUST1004,Blocked Wholesale,credit@blocked.com,+91-9000000004,Pune India,25000.00,47200.00,Blocked
