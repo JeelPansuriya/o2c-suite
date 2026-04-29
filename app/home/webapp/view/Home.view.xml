@@ -2,213 +2,139 @@
     controllerName="o2c.home.controller.Home"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:f="sap.f"
+    xmlns:l="sap.ui.layout"
     xmlns:core="sap.ui.core"
     xmlns:viz="sap.viz.ui5.controls"
     xmlns:viz.data="sap.viz.ui5.data"
     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
 
 <App>
-<Page showHeader="false">
+<Page showHeader="false" class="pageBg">
 
 <content>
 
-    <!-- ================= HEADER ================= -->
-    <VBox class="sapUiLargeMarginBottom sapUiMediumMarginBegin">
+    <!-- HEADER -->
+    <VBox class="sapUiLargeMargin">
         <Title text="O2C Dashboard" level="H2"/>
         <Text text="Order-to-Cash Overview"/>
     </VBox>
 
-    <!-- ================= KPI TILES ================= -->
-    <HBox
-        justifyContent="SpaceAround"
-        wrap="Wrap"
+    <!-- KPI GRID -->
+    <l:Grid
+        defaultSpan="XL2 L3 M6 S12"
+        hSpacing="1"
+        vSpacing="1"
         class="sapUiMediumMargin">
 
-        <!-- Orders -->
-        <GenericTile
-            header="Orders"
-            subheader="Sales Orders"
-            frameType="TwoByOne"
-            press="onTilePress">
-
+        <GenericTile header="Orders" press="onTilePress">
             <customData>
                 <core:CustomData key="target" value="orders"/>
             </customData>
-
             <TileContent>
-                <NumericContent
-                    value="{/kpi/orders}"
-                    valueColor="Good"
-                    icon="sap-icon://sales-order"/>
+                <NumericContent value="{/kpi/orders}" icon="sap-icon://sales-order"/>
             </TileContent>
         </GenericTile>
 
-        <!-- Products -->
-        <GenericTile
-            header="Products"
-            subheader="Product Catalog"
-            frameType="TwoByOne"
-            press="onTilePress">
-
+        <GenericTile header="Products" press="onTilePress">
             <customData>
                 <core:CustomData key="target" value="products"/>
             </customData>
-
             <TileContent>
-                <NumericContent
-                    value="{/kpi/products}"
-                    valueColor="Neutral"
-                    icon="sap-icon://product"/>
+                <NumericContent value="{/kpi/products}" icon="sap-icon://product"/>
             </TileContent>
         </GenericTile>
 
-        <!-- Customers -->
-        <GenericTile
-            header="Customers"
-            subheader="Manage Customers"
-            frameType="TwoByOne"
-            press="onTilePress">
-
+        <GenericTile header="Customers" press="onTilePress">
             <customData>
                 <core:CustomData key="target" value="customers"/>
             </customData>
-
             <TileContent>
-                <NumericContent
-                    value="{/kpi/customers}"
-                    valueColor="Neutral"
-                    icon="sap-icon://customer"/>
+                <NumericContent value="{/kpi/customers}" icon="sap-icon://customer"/>
             </TileContent>
         </GenericTile>
 
-        <!-- Invoices -->
-        <GenericTile
-            header="Invoices"
-            subheader="Billing Documents"
-            frameType="TwoByOne"
-            press="onTilePress">
-
+        <GenericTile header="Invoices" press="onTilePress">
             <customData>
                 <core:CustomData key="target" value="invoices"/>
             </customData>
-
             <TileContent>
-                <NumericContent
-                    value="{/kpi/invoices}"
-                    valueColor="Critical"
-                    icon="sap-icon://document-text"/>
+                <NumericContent value="{/kpi/invoices}" icon="sap-icon://document-text"/>
             </TileContent>
         </GenericTile>
 
-        <!-- Payments -->
-        <GenericTile
-            header="Payments"
-            subheader="Track Payments"
-            frameType="TwoByOne"
-            press="onTilePress">
-
+        <GenericTile header="Payments" press="onTilePress">
             <customData>
                 <core:CustomData key="target" value="payments"/>
             </customData>
-
             <TileContent>
-                <NumericContent
-                    value="{/kpi/payments}"
-                    valueColor="Good"
-                    icon="sap-icon://payment-approval"/>
+                <NumericContent value="{/kpi/payments}" icon="sap-icon://payment-approval"/>
             </TileContent>
         </GenericTile>
 
-    </HBox>
+    </l:Grid>
 
-    <!-- ================= CHART SECTION ================= -->
-    <HBox
-        justifyContent="SpaceBetween"
-        wrap="Wrap"
+    <!-- CHARTS GRID -->
+    <l:Grid
+        defaultSpan="XL6 L6 M12 S12"
+        hSpacing="1"
+        vSpacing="1"
         class="sapUiMediumMargin">
 
-        <!-- ===== SALES TREND ===== -->
-        <VBox width="48%" class="sapUiSmallMargin">
-            <Title text="Sales Trend" level="H4"/>
-
+        <!-- SALES TREND -->
+        <VBox class="chartCard">
+            <Title text="Sales Trend"/>
             <viz:VizFrame
-                id="lineChart"
                 vizType="line"
                 width="100%"
-                height="320px">
+                height="350px">
 
                 <viz:dataset>
                     <viz.data:FlattenedDataset data="{/sales}">
                         <viz.data:dimensions>
-                            <viz.data:DimensionDefinition
-                                name="Month"
-                                value="{month}"/>
+                            <viz.data:DimensionDefinition name="Month" value="{month}"/>
                         </viz.data:dimensions>
-
                         <viz.data:measures>
-                            <viz.data:MeasureDefinition
-                                name="Orders"
-                                value="{value}"/>
+                            <viz.data:MeasureDefinition name="Orders" value="{value}"/>
                         </viz.data:measures>
                     </viz.data:FlattenedDataset>
                 </viz:dataset>
 
                 <viz:feeds>
-                    <viz.feeds:FeedItem
-                        uid="valueAxis"
-                        type="Measure"
-                        values="Orders"/>
-                    <viz.feeds:FeedItem
-                        uid="categoryAxis"
-                        type="Dimension"
-                        values="Month"/>
+                    <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Orders"/>
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Month"/>
                 </viz:feeds>
 
             </viz:VizFrame>
         </VBox>
 
-        <!-- ===== ORDER STATUS ===== -->
-        <VBox width="48%" class="sapUiSmallMargin">
-            <Title text="Order Status" level="H4"/>
-
+        <!-- ORDER STATUS -->
+        <VBox class="chartCard">
+            <Title text="Order Status"/>
             <viz:VizFrame
-                id="donutChart"
                 vizType="donut"
                 width="100%"
-                height="320px">
+                height="350px">
 
                 <viz:dataset>
                     <viz.data:FlattenedDataset data="{/status}">
                         <viz.data:dimensions>
-                            <viz.data:DimensionDefinition
-                                name="Status"
-                                value="{status}"/>
+                            <viz.data:DimensionDefinition name="Status" value="{status}"/>
                         </viz.data:dimensions>
-
                         <viz.data:measures>
-                            <viz.data:MeasureDefinition
-                                name="Count"
-                                value="{count}"/>
+                            <viz.data:MeasureDefinition name="Count" value="{count}"/>
                         </viz.data:measures>
                     </viz.data:FlattenedDataset>
                 </viz:dataset>
 
                 <viz:feeds>
-                    <viz.feeds:FeedItem
-                        uid="size"
-                        type="Measure"
-                        values="Count"/>
-                    <viz.feeds:FeedItem
-                        uid="color"
-                        type="Dimension"
-                        values="Status"/>
+                    <viz.feeds:FeedItem uid="size" type="Measure" values="Count"/>
+                    <viz.feeds:FeedItem uid="color" type="Dimension" values="Status"/>
                 </viz:feeds>
 
             </viz:VizFrame>
         </VBox>
 
-    </HBox>
+    </l:Grid>
 
 </content>
 </Page>

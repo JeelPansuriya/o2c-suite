@@ -1,13 +1,22 @@
-.sapFCard {
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    transition: 0.3s;
-}
-
-.sapFCard:hover {
-    transform: translateY(-5px);
-}
-
-.sapMPage {
+.pageBg {
     background: #f5f7fa;
+}
+
+/* Tiles */
+.sapMGenericTile {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.2s;
+}
+
+.sapMGenericTile:hover {
+    transform: translateY(-4px);
+}
+
+/* Charts */
+.chartCard {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
