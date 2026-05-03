@@ -20,8 +20,8 @@
   "dependencies": {
     "@cap-js/sqlite": "^2",
     "@sap/cds": "^9",
-    "@sap/xsenv": "^3.3.0",
-    "@sap/xssec": "^3.3.0",
+    "@sap/xsenv": "^6.2.0",
+    "@sap/xssec": "^4.13.0",
     "express": "^5"
   },
   "devDependencies": {

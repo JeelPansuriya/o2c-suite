@@ -3,178 +3,174 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:l="sap.ui.layout"
-    xmlns:core="sap.ui.core"
-    xmlns:viz="sap.viz.ui5.controls"
-    xmlns:viz.data="sap.viz.ui5.data"
-    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
+    xmlns:core="sap.ui.core">
 
-<App>
-<Page showHeader="false" class="pageBg">
+    <App>
+        <Page showHeader="false" class="homePage">
+            <content>
+                <VBox class="homeShell">
+                    <HBox class="heroBand" alignItems="Center" justifyContent="SpaceBetween">
+                        <VBox class="heroCopy">
+                            <ObjectStatus text="Order to Cash Suite" icon="sap-icon://business-suite" class="heroBadge"/>
+                            <Title text="{/welcomeTitle}" level="H1" class="heroTitle"/>
+                            <Text text="Your workspace for orders, customers, products, invoices, payments, reports, and analytics." class="heroSubtitle"/>
+                            <HBox class="heroQuickStats" wrap="Wrap">
+                                <ObjectStatus title="Today's Focus" text="Open orders" state="Information" icon="sap-icon://sales-order"/>
+                                <ObjectStatus title="Next Step" text="Billing and collection" state="Success" icon="sap-icon://payment-approval"/>
+                                <ObjectStatus title="Access" text="Secured with XSUAA" state="None" icon="sap-icon://locked"/>
+                            </HBox>
+                        </VBox>
 
-<content>
+                        <VBox class="heroPanel">
+                            <Text text="Signed-in workspace" class="panelLabel"/>
+                            <Title text="Move from order to cash with fewer clicks." level="H3" class="panelTitle"/>
+                            <Text text="Choose a tile below to open the exact business area you need." class="panelText"/>
+                        </VBox>
+                    </HBox>
 
-    <!-- WELCOME HERO SECTION -->
-    <VBox class="welcomeHero sapUiLargeMargin">
-        <Title text="Welcome Back!" level="H1" class="welcomeTitle"/>
-        <Text text="Manage your Order-to-Cash process seamlessly. Access all your business operations from here." class="welcomeSubtitle"/>
-    </VBox>
+                    <VBox class="sectionBlock">
+                        <HBox alignItems="End" justifyContent="SpaceBetween" class="sectionHeader">
+                            <VBox>
+                                <Title text="Business Areas" level="H2" class="sectionTitle"/>
+                                <Text text="Jump directly into the work center you need." class="sectionText"/>
+                            </VBox>
+                        </HBox>
 
-    <!-- NAVIGATION CARDS GRID -->
-    <l:Grid
-        defaultSpan="XL2 L3 M6 S12"
-        hSpacing="1"
-        vSpacing="1"
-        class="sapUiMediumMargin navCardsGrid">
+                        <l:Grid
+                            defaultSpan="XL3 L4 M6 S12"
+                            hSpacing="1"
+                            vSpacing="1"
+                            class="tileGrid">
 
-        <Button
-            text="Orders"
-            icon="sap-icon://sales-order"
-            press="onNavigate"
-            class="navCard"
-            type="Emphasized"
-            width="100%">
-            <customData>
-                <core:CustomData key="target" value="orders"/>
-            </customData>
-        </Button>
+                            <GenericTile
+                                header="Orders"
+                                subheader="Create, track, and manage sales orders"
+                                frameType="TwoByOne"
+                                class="navTile tileOrders"
+                                press="onTilePress">
+                                <customData>
+                                    <core:CustomData key="target" value="orders"/>
+                                </customData>
+                                <TileContent>
+                                    <NumericContent icon="sap-icon://sales-order" value="Open" withMargin="false"/>
+                                </TileContent>
+                            </GenericTile>
 
-        <Button
-            text="Products"
-            icon="sap-icon://product"
-            press="onNavigate"
-            class="navCard"
-            type="Emphasized"
-            width="100%">
-            <customData>
-                <core:CustomData key="target" value="products"/>
-            </customData>
-        </Button>
+                            <GenericTile
+                                header="Customers"
+                                subheader="Customer master, credit, and account status"
+                                frameType="TwoByOne"
+                                class="navTile tileCustomers"
+                                press="onTilePress">
+                                <customData>
+                                    <core:CustomData key="target" value="customers"/>
+                                </customData>
+                                <TileContent>
+                                    <NumericContent icon="sap-icon://customer" value="Serve" withMargin="false"/>
+                                </TileContent>
+                            </GenericTile>
 
-        <Button
-            text="Customers"
-            icon="sap-icon://customer"
-            press="onNavigate"
-            class="navCard"
-            type="Emphasized"
-            width="100%">
-            <customData>
-                <core:CustomData key="target" value="customers"/>
-            </customData>
-        </Button>
+                            <GenericTile
+                                header="Products"
+                                subheader="Catalog, prices, categories, and stock"
+                                frameType="TwoByOne"
+                                class="navTile tileProducts"
+                                press="onTilePress">
+                                <customData>
+                                    <core:CustomData key="target" value="products"/>
+                                </customData>
+                                <TileContent>
+                                    <NumericContent icon="sap-icon://product" value="Stock" withMargin="false"/>
+                                </TileContent>
+                            </GenericTile>
 
-        <Button
-            text="Invoices"
-            icon="sap-icon://document-text"
-            press="onNavigate"
-            class="navCard"
-            type="Emphasized"
-            width="100%">
-            <customData>
-                <core:CustomData key="target" value="invoices"/>
-            </customData>
-        </Button>
+                            <GenericTile
+                                header="Order Items"
+                                subheader="Line items, quantities, and product links"
+                                frameType="TwoByOne"
+                                class="navTile tileItems"
+                                press="onTilePress">
+                                <customData>
+                                    <core:CustomData key="target" value="orderitems"/>
+                                </customData>
+                                <TileContent>
+                                    <NumericContent icon="sap-icon://list" value="Lines" withMargin="false"/>
+                                </TileContent>
+                            </GenericTile>
 
-        <Button
-            text="Payments"
-            icon="sap-icon://payment-approval"
-            press="onNavigate"
-            class="navCard"
-            type="Emphasized"
-            width="100%">
-            <customData>
-                <core:CustomData key="target" value="payments"/>
-            </customData>
-        </Button>
+                            <GenericTile
+                                header="Approvals"
+                                subheader="Review pending decisions and credit checks"
+                                frameType="TwoByOne"
+                                class="navTile tileApprovals"
+                                press="onTilePress">
+                                <customData>
+                                    <core:CustomData key="target" value="approvals"/>
+                                </customData>
+                                <TileContent>
+                                    <NumericContent icon="sap-icon://approvals" value="Review" withMargin="false"/>
+                                </TileContent>
+                            </GenericTile>
 
-        <Button
-            text="Reports"
-            icon="sap-icon://bar-chart"
-            press="onNavigate"
-            class="navCard"
-            type="Emphasized"
-            width="100%">
-            <customData>
-                <core:CustomData key="target" value="reports"/>
-            </customData>
-        </Button>
-        <Button
-            text="Analytics"
-            icon="sap-icon://bar-chart"
-            press="onNavigate"
-            class="navCard"
-            type="Emphasized"
-            width="100%">
-            <customData>
-                <core:CustomData key="target" value="analytics"/>
-            </customData>
-        </Button>
+                            <GenericTile
+                                header="Invoices"
+                                subheader="Billing documents, due dates, and status"
+                                frameType="TwoByOne"
+                                class="navTile tileInvoices"
+                                press="onTilePress">
+                                <customData>
+                                    <core:CustomData key="target" value="invoices"/>
+                                </customData>
+                                <TileContent>
+                                    <NumericContent icon="sap-icon://document-text" value="Bill" withMargin="false"/>
+                                </TileContent>
+                            </GenericTile>
 
-    </l:Grid>
+                            <GenericTile
+                                header="Payments"
+                                subheader="Collections, payment modes, and clearing"
+                                frameType="TwoByOne"
+                                class="navTile tilePayments"
+                                press="onTilePress">
+                                <customData>
+                                    <core:CustomData key="target" value="payments"/>
+                                </customData>
+                                <TileContent>
+                                    <NumericContent icon="sap-icon://payment-approval" value="Collect" withMargin="false"/>
+                                </TileContent>
+                            </GenericTile>
 
-    <!-- CHARTS GRID -->
-    <l:Grid
-        defaultSpan="XL6 L6 M12 S12"
-        hSpacing="1"
-        vSpacing="1"
-        class="sapUiMediumMargin">
+                            <GenericTile
+                                header="Reports"
+                                subheader="Operational summaries and business views"
+                                frameType="TwoByOne"
+                                class="navTile tileReports"
+                                press="onTilePress">
+                                <customData>
+                                    <core:CustomData key="target" value="reports"/>
+                                </customData>
+                                <TileContent>
+                                    <NumericContent icon="sap-icon://business-objects-experience" value="View" withMargin="false"/>
+                                </TileContent>
+                            </GenericTile>
 
-        <!-- SALES TREND -->
-        <VBox class="chartCard">
-            <Title text="Sales Trend"/>
-            <viz:VizFrame
-                vizType="line"
-                width="100%"
-                height="350px">
-
-                <viz:dataset>
-                    <viz.data:FlattenedDataset data="{/sales}">
-                        <viz.data:dimensions>
-                            <viz.data:DimensionDefinition name="Month" value="{month}"/>
-                        </viz.data:dimensions>
-                        <viz.data:measures>
-                            <viz.data:MeasureDefinition name="Orders" value="{value}"/>
-                        </viz.data:measures>
-                    </viz.data:FlattenedDataset>
-                </viz:dataset>
-
-                <viz:feeds>
-                    <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Orders"/>
-                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Month"/>
-                </viz:feeds>
-
-            </viz:VizFrame>
-        </VBox>
-
-        <!-- ORDER STATUS -->
-        <VBox class="chartCard">
-            <Title text="Order Status"/>
-            <viz:VizFrame
-                vizType="donut"
-                width="100%"
-                height="350px">
-
-                <viz:dataset>
-                    <viz.data:FlattenedDataset data="{/status}">
-                        <viz.data:dimensions>
-                            <viz.data:DimensionDefinition name="Status" value="{status}"/>
-                        </viz.data:dimensions>
-                        <viz.data:measures>
-                            <viz.data:MeasureDefinition name="Count" value="{count}"/>
-                        </viz.data:measures>
-                    </viz.data:FlattenedDataset>
-                </viz:dataset>
-
-                <viz:feeds>
-                    <viz.feeds:FeedItem uid="size" type="Measure" values="Count"/>
-                    <viz.feeds:FeedItem uid="color" type="Dimension" values="Status"/>
-                </viz:feeds>
-
-            </viz:VizFrame>
-        </VBox>
-
-    </l:Grid>
-
-</content>
-</Page>
-</App>
+                            <!-- <GenericTile
+                                header="Analytics"
+                                subheader="Explore performance and order insights"
+                                frameType="TwoByOne"
+                                class="navTile tileAnalytics"
+                                press="onTilePress">
+                                <customData>
+                                    <core:CustomData key="target" value="analytics"/>
+                                </customData>
+                                <TileContent>
+                                    <NumericContent icon="sap-icon://business-objects-mobile" value="Analyze" withMargin="false"/>
+                                </TileContent>
+                            </GenericTile> -->
+                        </l:Grid>
+                    </VBox>
+                </VBox>
+            </content>
+        </Page>
+    </App>
 </mvc:View>
