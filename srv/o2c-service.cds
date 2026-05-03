@@ -1,6 +1,6 @@
 using { o2c as db } from '../db/schema';
 
-service O2CService @(path: '/odata/v4/o2c') {
+service O2CService @(path: '/odata/v4/o2c') @(requires: 'authenticated-user') {
 
   @odata.draft.enabled
   entity Customers as projection on db.Customers;

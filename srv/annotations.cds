@@ -1,6 +1,86 @@
 using O2CService as service from './o2c-service';
 using from '@sap/cds/common';
 
+
+//i have made an analytical list template for sales entity whith navigation as items , now ur task is to make a good analytical ui for sales , i have added few aggregated in annotation.cds so complete the analytical project and it should look very attractive in ui
+
+// ─── AGGREGATION ANNOTATIONS (Required for Analytical List Page) ────────────
+
+annotate service.Orders with @(
+  Aggregation.ApplySupported : {
+    Transformations        : ['aggregate', 'groupby', 'filter'],
+    GroupableProperties    : [customerID, orderStatus, creditStatus, orderDate],
+    AggregatableProperties : [
+      { Property : totalAmount }
+    ]
+  },
+  Analytics.AggregatedProperty #totalOrderAmount : {
+    Name                 : 'totalOrderAmount',
+    AggregationMethod    : 'sum',
+    AggregatableProperty : totalAmount,
+    ![@Common.Label]     : 'Total Order Amount'
+  }
+);
+
+annotate service.OrderItems with @(
+  Aggregation.ApplySupported : {
+    Transformations        : ['aggregate', 'groupby', 'filter'],
+    GroupableProperties    : [orderID, productID],
+    AggregatableProperties : [
+      { Property : quantity  },
+      { Property : unitPrice },
+      { Property : itemTotal }
+    ]
+  },
+  Analytics.AggregatedProperty #totalItemAmount : {
+    Name                 : 'totalItemAmount',
+    AggregationMethod    : 'sum',
+    AggregatableProperty : itemTotal,
+    ![@Common.Label]     : 'Total Item Amount'
+  },
+  Analytics.AggregatedProperty #totalQuantity : {
+    Name                 : 'totalQuantity',
+    AggregationMethod    : 'sum',
+    AggregatableProperty : quantity,
+    ![@Common.Label]     : 'Total Quantity'
+  }
+);
+
+annotate service.Invoices with @(
+  Aggregation.ApplySupported : {
+    Transformations        : ['aggregate', 'groupby', 'filter'],
+    GroupableProperties    : [orderID, invoiceStatus, invoiceDate, dueDate],
+    AggregatableProperties : [
+      { Property : amount }
+    ]
+  },
+  Analytics.AggregatedProperty #totalInvoiceAmount : {
+    Name                 : 'totalInvoiceAmount',
+    AggregationMethod    : 'sum',
+    AggregatableProperty : amount,
+    ![@Common.Label]     : 'Total Invoice Amount'
+  }
+);
+
+annotate service.Payments with @(
+  Aggregation.ApplySupported : {
+    Transformations        : ['aggregate', 'groupby', 'filter'],
+    GroupableProperties    : [invoiceID, paymentMode, paymentStatus, paymentDate],
+    AggregatableProperties : [
+      { Property : amountPaid }
+    ]
+  },
+  Analytics.AggregatedProperty #totalAmountPaid : {
+    Name                 : 'totalAmountPaid',
+    AggregationMethod    : 'sum',
+    AggregatableProperty : amountPaid,
+    ![@Common.Label]     : 'Total Amount Paid'
+  }
+);
+
+// ─── VALUE HELP: ENUM FIELDS (inline dropdowns) ────────────────────────────
+// ... rest of your existing annotations.cds unchanged ...
+
 // ─── VALUE HELP: ENUM FIELDS (inline dropdowns) ────────────────────────────
 
 annotate service.Customers with {

@@ -97,6 +97,17 @@
                 <core:CustomData key="target" value="reports"/>
             </customData>
         </Button>
+        <Button
+            text="Analytics"
+            icon="sap-icon://bar-chart"
+            press="onNavigate"
+            class="navCard"
+            type="Emphasized"
+            width="100%">
+            <customData>
+                <core:CustomData key="target" value="analytics"/>
+            </customData>
+        </Button>
 
     </l:Grid>
 

@@ -14,15 +14,25 @@
     "watch-approvals": "cds watch --open o2c.approvals/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-invoices": "cds watch --open o2c.invoices/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-payments": "cds watch --open o2c.payments/index.html?sap-ui-xx-viewCache=false --livereload false",
-    "watch-reports": "cds watch --open o2c.reports/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-reports": "cds watch --open o2c.reports/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-analytics": "cds watch --open o2c.analytics/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "dependencies": {
     "@cap-js/sqlite": "^2",
     "@sap/cds": "^9",
+    "@sap/xsenv": "^3.3.0",
+    "@sap/xssec": "^3.3.0",
     "express": "^5"
   },
   "devDependencies": {
     "cds-plugin-ui5": "^0.13.0"
+  },
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "xsuaa"
+      }
+    }
   },
   "workspaces": [
     "app/*"
@@ -35,6 +45,7 @@
     "app/approvals",
     "app/invoices",
     "app/payments",
-    "app/reports"
+    "app/reports",
+    "app/analytics"
   ]
 }
