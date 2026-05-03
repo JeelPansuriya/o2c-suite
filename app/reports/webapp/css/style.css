@@ -1,0 +1,140 @@
+.reportBg {
+    background: linear-gradient(135deg, #0f1e3d 0%, #1a3a52 25%, #10517a 50%, #0d2d47 75%, #081a2a 100%);
+    min-height: 100vh;
+}
+
+.sapMPage {
+    background: transparent !important;
+}
+
+.pageContainer {
+    padding: 2.5rem 2rem;
+}
+
+.reportHeaderSection {
+    margin-bottom: 3rem;
+}
+
+.mainTitle {
+    font-size: 2.8rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin-bottom: 0.5rem !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subTitle {
+    font-size: 1.1rem !important;
+    color: #a8c5d8 !important;
+    max-width: 600px;
+}
+
+.kpiGrid {
+    margin-bottom: 2.5rem;
+}
+
+.kpiCard {
+    background: linear-gradient(180deg, #ffffff 0%, #f5faff 100%);
+    border-radius: 22px;
+    padding: 1.6rem;
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.kpiCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.25);
+}
+
+.kpiHeader {
+    margin-bottom: 1.2rem;
+}
+
+.kpiIcon {
+    font-size: 2.8rem !important;
+    line-height: 1 !important;
+}
+
+.kpiLabel {
+    font-size: 0.85rem !important;
+    color: #6b7a8f !important;
+    font-weight: 500 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.kpiSubLabel {
+    font-size: 0.75rem !important;
+    color: #a0afc0 !important;
+    margin-top: 0.2rem;
+}
+
+.kpiValue {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: #0f1e3d !important;
+    margin: 0.5rem 0 !important;
+}
+
+.kpiMeta {
+    align-items: Center;
+    margin-top: 0.8rem;
+}
+
+.kpiTrendIcon {
+    font-size: 1rem !important;
+    margin-right: 0.6rem !important;
+    line-height: 1 !important;
+}
+
+.kpiTrend {
+    font-size: 0.85rem !important;
+    color: #52B040 !important;
+    font-weight: 500 !important;
+}
+
+.chartGrid {
+    margin-bottom: 2rem;
+}
+
+.chartCard {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    border-radius: 22px;
+    padding: 1.8rem;
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.15);
+    min-height: auto;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.chartTitle {
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
+    color: #0f1e3d !important;
+    margin-bottom: 0.3rem !important;
+}
+
+.chartSubtitle {
+    font-size: 0.9rem !important;
+    color: #7a8fa6 !important;
+    margin-bottom: 1.2rem !important;
+}
+
+.vizFrame {
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+    .pageContainer {
+        padding: 1.5rem 1rem;
+    }
+
+    .mainTitle {
+        font-size: 2rem !important;
+    }
+
+    .kpiValue {
+        font-size: 1.8rem !important;
+    }
+}

@@ -52,7 +52,8 @@ sap.ui.define([
                 products: "/products/webapp/index.html",
                 customers: "/customers/webapp/index.html",
                 invoices: "/invoices/webapp/index.html",
-                payments: "/payments/webapp/index.html"
+                payments: "/payments/webapp/index.html",
+                reports: "/reports/webapp/index.html"
             };
 
             const sUrl = oRoutes[sTarget];

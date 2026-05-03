@@ -13,63 +13,90 @@
 
 <content>
 
-    <!-- HEADER -->
-    <VBox class="sapUiLargeMargin">
-        <Title text="O2C Dashboard" level="H2"/>
-        <Text text="Order-to-Cash Overview"/>
+    <!-- WELCOME HERO SECTION -->
+    <VBox class="welcomeHero sapUiLargeMargin">
+        <Title text="Welcome Back!" level="H1" class="welcomeTitle"/>
+        <Text text="Manage your Order-to-Cash process seamlessly. Access all your business operations from here." class="welcomeSubtitle"/>
     </VBox>
 
-    <!-- KPI GRID -->
+    <!-- NAVIGATION CARDS GRID -->
     <l:Grid
         defaultSpan="XL2 L3 M6 S12"
         hSpacing="1"
         vSpacing="1"
-        class="sapUiMediumMargin">
+        class="sapUiMediumMargin navCardsGrid">
 
-        <GenericTile header="Orders" press="onTilePress">
+        <Button
+            text="Orders"
+            icon="sap-icon://sales-order"
+            press="onNavigate"
+            class="navCard"
+            type="Emphasized"
+            width="100%">
             <customData>
                 <core:CustomData key="target" value="orders"/>
             </customData>
-            <TileContent>
-                <NumericContent value="{/kpi/orders}" icon="sap-icon://sales-order"/>
-            </TileContent>
-        </GenericTile>
+        </Button>
 
-        <GenericTile header="Products" press="onTilePress">
+        <Button
+            text="Products"
+            icon="sap-icon://product"
+            press="onNavigate"
+            class="navCard"
+            type="Emphasized"
+            width="100%">
             <customData>
                 <core:CustomData key="target" value="products"/>
             </customData>
-            <TileContent>
-                <NumericContent value="{/kpi/products}" icon="sap-icon://product"/>
-            </TileContent>
-        </GenericTile>
+        </Button>
 
-        <GenericTile header="Customers" press="onTilePress">
+        <Button
+            text="Customers"
+            icon="sap-icon://customer"
+            press="onNavigate"
+            class="navCard"
+            type="Emphasized"
+            width="100%">
             <customData>
                 <core:CustomData key="target" value="customers"/>
             </customData>
-            <TileContent>
-                <NumericContent value="{/kpi/customers}" icon="sap-icon://customer"/>
-            </TileContent>
-        </GenericTile>
+        </Button>
 
-        <GenericTile header="Invoices" press="onTilePress">
+        <Button
+            text="Invoices"
+            icon="sap-icon://document-text"
+            press="onNavigate"
+            class="navCard"
+            type="Emphasized"
+            width="100%">
             <customData>
                 <core:CustomData key="target" value="invoices"/>
             </customData>
-            <TileContent>
-                <NumericContent value="{/kpi/invoices}" icon="sap-icon://document-text"/>
-            </TileContent>
-        </GenericTile>
+        </Button>
 
-        <GenericTile header="Payments" press="onTilePress">
+        <Button
+            text="Payments"
+            icon="sap-icon://payment-approval"
+            press="onNavigate"
+            class="navCard"
+            type="Emphasized"
+            width="100%">
             <customData>
                 <core:CustomData key="target" value="payments"/>
             </customData>
-            <TileContent>
-                <NumericContent value="{/kpi/payments}" icon="sap-icon://payment-approval"/>
-            </TileContent>
-        </GenericTile>
+        </Button>
+
+        <Button
+            text="Reports"
+            icon="sap-icon://bar-chart"
+            press="onNavigate"
+            class="navCard"
+            type="Emphasized"
+            width="100%">
+            <customData>
+                <core:CustomData key="target" value="reports"/>
+            </customData>
+        </Button>
 
     </l:Grid>
 

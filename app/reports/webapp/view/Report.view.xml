@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View controllerName="o2c.reports.controller.Report"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
+
+    <App>
+        <Page showHeader="false" class="reportBg">
+            <content>
+                <VBox class="pageContainer">
+                    <VBox class="reportHeaderSection">
+                        <Title text="O2C Reports Dashboard" level="H1" class="mainTitle" />
+                        <Text text="Real-time analytics for orders, revenue, and business performance" class="subTitle" />
+                    </VBox>
+
+                    <layout:Grid defaultSpan="XL3 L4 M6 S12" hSpacing="2" vSpacing="2" class="kpiGrid">
+                        <VBox class="kpiCard">
+                            <HBox alignItems="Center" justifyContent="SpaceBetween" class="kpiHeader">
+                                <VBox>
+                                    <Text text="Total Orders" class="kpiLabel" />
+                                    <Text text="This Month" class="kpiSubLabel" />
+                                </VBox>
+                                <Text text="📦" class="kpiIcon" />
+                            </HBox>
+                            <Title text="{/kpi/orders}" level="H2" class="kpiValue" />
+                            <HBox class="kpiMeta">
+                                <Text text="📈" class="kpiTrendIcon" />
+                                <Text text="+12% from last month" class="kpiTrend" />
+                            </HBox>
+                        </VBox>
+
+                        <VBox class="kpiCard">
+                            <HBox alignItems="Center" justifyContent="SpaceBetween" class="kpiHeader">
+                                <VBox>
+                                    <Text text="Total Revenue" class="kpiLabel" />
+                                    <Text text="Last 30 Days" class="kpiSubLabel" />
+                                </VBox>
+                                <Text text="💰" class="kpiIcon" />
+                            </HBox>
+                            <Title text="{/kpi/revenue}" level="H2" class="kpiValue" />
+                            <HBox class="kpiMeta">
+                                <Text text="📈" class="kpiTrendIcon" />
+                                <Text text="+18% growth rate" class="kpiTrend" />
+                            </HBox>
+                        </VBox>
+
+                        <VBox class="kpiCard">
+                            <HBox alignItems="Center" justifyContent="SpaceBetween" class="kpiHeader">
+                                <VBox>
+                                    <Text text="Active Customers" class="kpiLabel" />
+                                    <Text text="Current Period" class="kpiSubLabel" />
+                                </VBox>
+                                <Text text="👥" class="kpiIcon" />
+                            </HBox>
+                            <Title text="{/kpi/customers}" level="H2" class="kpiValue" />
+                            <HBox class="kpiMeta">
+                                <Text text="✅" class="kpiTrendIcon" />
+                                <Text text="+8% new customers" class="kpiTrend" />
+                            </HBox>
+                        </VBox>
+
+                        <VBox class="kpiCard">
+                            <HBox alignItems="Center" justifyContent="SpaceBetween" class="kpiHeader">
+                                <VBox>
+                                    <Text text="Payment Success" class="kpiLabel" />
+                                    <Text text="Successful" class="kpiSubLabel" />
+                                </VBox>
+                                <Text text="✓" class="kpiIcon" />
+                            </HBox>
+                            <Title text="{/kpi/payments}" level="H2" class="kpiValue" />
+                            <HBox class="kpiMeta">
+                                <Text text="✅" class="kpiTrendIcon" />
+                                <Text text="99.2% success rate" class="kpiTrend" />
+                            </HBox>
+                        </VBox>
+                    </layout:Grid>
+
+                    <layout:Grid defaultSpan="XL6 L6 M12 S12" hSpacing="2" vSpacing="2" class="chartGrid">
+                        <VBox class="chartCard">
+                            <Title text="Revenue Trend" class="chartTitle" />
+                            <Text text="Monthly performance with growth momentum." class="chartSubtitle" />
+                            <viz:VizFrame vizType="line" width="100%" height="360px" class="vizFrame">
+                                <viz:dataset>
+                                    <viz.data:FlattenedDataset data="{/sales}">
+                                        <viz.data:dimensions>
+                                            <viz.data:DimensionDefinition name="Month" value="{month}" />
+                                        </viz.data:dimensions>
+                                        <viz.data:measures>
+                                            <viz.data:MeasureDefinition name="Revenue" value="{value}" />
+                                        </viz.data:measures>
+                                    </viz.data:FlattenedDataset>
+                                </viz:dataset>
+                                <viz:feeds>
+                                    <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Revenue" />
+                                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Month" />
+                                </viz:feeds>
+                            </viz:VizFrame>
+                        </VBox>
+
+                        <VBox class="chartCard">
+                            <Title text="Order Status Distribution" class="chartTitle" />
+                            <Text text="Real-time distribution across all order statuses" class="chartSubtitle" />
+                            <viz:VizFrame vizType="pie" width="100%" height="360px" class="vizFrame">
+                                <viz:dataset>
+                                    <viz.data:FlattenedDataset data="{/status}">
+                                        <viz.data:dimensions>
+                                            <viz.data:DimensionDefinition name="Status" value="{status}" />
+                                        </viz.data:dimensions>
+                                        <viz.data:measures>
+                                            <viz.data:MeasureDefinition name="Count" value="{count}" />
+                                        </viz.data:measures>
+                                    </viz.data:FlattenedDataset>
+                                </viz:dataset>
+                                <viz:feeds>
+                                    <viz.feeds:FeedItem uid="size" type="Measure" values="Count" />
+                                    <viz.feeds:FeedItem uid="color" type="Dimension" values="Status" />
+                                </viz:feeds>
+                            </viz:VizFrame>
+                        </VBox>
+                    </layout:Grid>
+
+                    <layout:Grid defaultSpan="XL6 L6 M12 S12" hSpacing="2" vSpacing="2" class="chartGrid">
+                        <VBox class="chartCard">
+                            <Title text="Revenue by Category" class="chartTitle" />
+                            <Text text="Product category revenue performance" class="chartSubtitle" />
+                            <viz:VizFrame vizType="bar" width="100%" height="360px" class="vizFrame">
+                                <viz:dataset>
+                                    <viz.data:FlattenedDataset data="{/categories}">
+                                        <viz.data:dimensions>
+                                            <viz.data:DimensionDefinition name="Category" value="{category}" />
+                                        </viz.data:dimensions>
+                                        <viz.data:measures>
+                                            <viz.data:MeasureDefinition name="Revenue" value="{value}" />
+                                        </viz.data:measures>
+                                    </viz.data:FlattenedDataset>
+                                </viz:dataset>
+                                <viz:feeds>
+                                    <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Revenue" />
+                                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Category" />
+                                </viz:feeds>
+                            </viz:VizFrame>
+                        </VBox>
+
+                        <VBox class="chartCard">
+                            <Title text="Payment Methods" class="chartTitle" />
+                            <Text text="Transaction distribution by payment method" class="chartSubtitle" />
+                            <viz:VizFrame vizType="pie" width="100%" height="360px" class="vizFrame">
+                                <viz:dataset>
+                                    <viz.data:FlattenedDataset data="{/paymentMethods}">
+                                        <viz.data:dimensions>
+                                            <viz.data:DimensionDefinition name="Method" value="{method}" />
+                                        </viz.data:dimensions>
+                                        <viz.data:measures>
+                                            <viz.data:MeasureDefinition name="Count" value="{count}" />
+                                        </viz.data:measures>
+                                    </viz.data:FlattenedDataset>
+                                </viz:dataset>
+                                <viz:feeds>
+                                    <viz.feeds:FeedItem uid="size" type="Measure" values="Count" />
+                                    <viz.feeds:FeedItem uid="color" type="Dimension" values="Method" />
+                                </viz:feeds>
+                            </viz:VizFrame>
+                        </VBox>
+                    </layout:Grid>
+                </VBox>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

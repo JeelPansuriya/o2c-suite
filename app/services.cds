@@ -12,3 +12,5 @@ using from './approvals/annotations';
 using from './invoices/annotations';
 
 using from './payments/annotations';
+
+using from './reports/annotations';

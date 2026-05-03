@@ -3,3 +3,16 @@ aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa,CUST1001,ABC Retail Pvt Ltd,ar@abc-retail.c
 bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb,CUST1002,Global Traders,finance@global-traders.com,+91-9000000002,Delhi India,30000.00,28500.00,Active
 cccccccc-cccc-cccc-cccc-cccccccccccc,CUST1003,Northwind Stores,ap@northwind.com,+91-9000000003,Bengaluru India,75000.00,8500.00,Active
 dddddddd-dddd-dddd-dddd-dddddddddddd,CUST1004,Blocked Wholesale,credit@blocked.com,+91-9000000004,Pune India,25000.00,47200.00,Blocked
+
+eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee,CUST1005,Sunrise Distributors,sales@sunrise.com,+91-9000000005,Chennai India,60000.00,15800.00,Active
+ffffffff-ffff-ffff-ffff-ffffffffffff,CUST1006,Metro Supplies,contact@metro.com,+91-9000000006,Hyderabad India,40000.00,22000.00,Active
+11111111-2222-3333-4444-555555555555,CUST1007,Prime Electronics,accounts@primeelec.com,+91-9000000007,Ahmedabad India,80000.00,52000.00,Active
+22222222-3333-4444-5555-666666666666,CUST1008,Elite Mart,admin@elitemart.com,+91-9000000008,Kolkata India,35000.00,12000.00,Active
+33333333-4444-5555-6666-777777777777,CUST1009,City Wholesale,finance@citywholesale.com,+91-9000000009,Jaipur India,45000.00,46000.00,Blocked
+44444444-5555-6666-7777-888888888888,CUST1010,National Traders,info@nationaltraders.com,+91-9000000010,Surat India,70000.00,30000.00,Active
+
+55555555-6666-7777-8888-999999999999,CUST1011,Quick Supply Co,qs@quick.com,+91-9000000011,Indore India,30000.00,5000.00,Active
+66666666-7777-8888-9999-aaaaaaaaaaaa,CUST1012,Reliable Stores,reliable@stores.com,+91-9000000012,Nagpur India,55000.00,20000.00,Active
+77777777-8888-9999-aaaa-bbbbbbbbbbbb,CUST1013,Urban Retailers,urban@retail.com,+91-9000000013,Chandigarh India,65000.00,64000.00,Blocked
+88888888-9999-aaaa-bbbb-cccccccccccc,CUST1014,Super Bazaar,support@superbazaar.com,+91-9000000014,Noida India,50000.00,25000.00,Active
+99999999-aaaa-bbbb-cccc-dddddddddddd,CUST1015,Value Mart,valuemart@vm.com,+91-9000000015,Lucknow India,45000.00,15000.00,Active

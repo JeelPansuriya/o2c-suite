@@ -1,22 +1,123 @@
 .pageBg {
-    background: #f5f7fa;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    background-size: 400% 400%;
+    min-height: 100vh;
 }
 
-/* Tiles */
-.sapMGenericTile {
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: 0.2s;
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.sapMGenericTile:hover {
-    transform: translateY(-4px);
+.sapMPage {
+    background: transparent !important;
+}
+
+/* Welcome Hero Section */
+.welcomeHero {
+    text-align: center;
+    margin-top: 3rem !important;
+    margin-bottom: 2rem !important;
+    padding: 2rem 1rem;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.welcomeTitle {
+    color: #333333 !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.5rem !important;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.welcomeSubtitle {
+    color: #666666 !important;
+    font-size: 1.1rem !important;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Navigation Cards Grid */
+.navCardsGrid {
+    margin: 2rem 1rem !important;
+}
+
+.navCard {
+    height: 120px !important;
+    border-radius: 16px !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    color: #333333 !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+}
+
+.navCard:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 16px 48px 0 rgba(102, 126, 234, 0.4) !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+.navCard:active {
+    transform: translateY(-4px) !important;
+}
+
+.navCard .sapMBtnIcon {
+    font-size: 1.75rem !important;
 }
 
 /* Charts */
 .chartCard {
-    background: white;
-    padding: 1rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+    padding: 1.5rem;
+    border-radius: 20px;
+    min-height: 420px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.chartCard .sapMTitle {
+    margin-bottom: 1.5rem;
+    color: #333333;
+    font-weight: 700;
+}
+
+.vizFrame {
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 1024px) {
+    .chartCard {
+        min-height: auto;
+    }
+    
+    .welcomeTitle {
+        font-size: 2rem !important;
+    }
+    
+    .welcomeSubtitle {
+        font-size: 1rem !important;
+    }
+    
+    .navCard {
+        height: 100px !important;
+    }
 }

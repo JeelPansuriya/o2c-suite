@@ -13,7 +13,8 @@
     "watch-orderitems": "cds watch --open o2c.orderitems/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-approvals": "cds watch --open o2c.approvals/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-invoices": "cds watch --open o2c.invoices/index.html?sap-ui-xx-viewCache=false --livereload false",
-    "watch-payments": "cds watch --open o2c.payments/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-payments": "cds watch --open o2c.payments/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-reports": "cds watch --open o2c.reports/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "dependencies": {
     "@cap-js/sqlite": "^2",
@@ -33,6 +34,7 @@
     "app/orderitems",
     "app/approvals",
     "app/invoices",
-    "app/payments"
+    "app/payments",
+    "app/reports"
   ]
 }
