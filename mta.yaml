@@ -1,0 +1,49 @@
+_schema-version: "3.3"
+ID: o2c-suite
+version: 1.0.0
+description: O2C Suite CAP and Fiori applications with XSUAA login
+
+modules:
+  - name: o2c-suite-srv
+    type: nodejs
+    path: .
+    parameters:
+      memory: 256M
+      disk-quota: 1024M
+    build-parameters:
+      builder: npm-ci
+      ignore:
+        - app/*/node_modules/
+        - node_modules/
+        - db.sqlite
+    provides:
+      - name: srv-api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: o2c-suite-auth
+    properties:
+      NODE_ENV: production
+
+  - name: o2c-suite-router
+    type: nodejs
+    path: app/router
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: o2c-suite-auth
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api
+          url: ~{srv-api/url}
+          forwardAuthToken: true
+
+resources:
+  - name: o2c-suite-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json

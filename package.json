@@ -30,12 +30,27 @@
   "cds": {
     "requires": {
       "auth": {
-        "kind": "xsuaa"
+        "kind": "mocked"
+      }
+    },
+    "[production]": {
+      "requires": {
+        "auth": {
+          "kind": "xsuaa"
+        }
       }
     }
   },
   "workspaces": [
-    "app/*"
+    "app/analytics",
+    "app/approvals",
+    "app/customers",
+    "app/invoices",
+    "app/orderitems",
+    "app/orders",
+    "app/payments",
+    "app/products",
+    "app/reports"
   ],
   "sapux": [
     "app/orders",

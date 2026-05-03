@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Button text="Add Item" press=".onOpenAddItemDialog" type="Emphasized"/>
+</core:FragmentDefinition>
