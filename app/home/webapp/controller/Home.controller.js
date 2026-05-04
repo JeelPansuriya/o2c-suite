@@ -25,6 +25,7 @@ sap.ui.define([
                 invoices: "/invoices/webapp/index.html",
                 payments: "/payments/webapp/index.html",
                 reports: "/reports/webapp/index.html",
+                externalapis: "/externalapis/webapp/index.html",
                 analytics: "/analytics/webapp/index.html"
             };
 

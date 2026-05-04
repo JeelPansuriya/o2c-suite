@@ -1,0 +1,9 @@
+{
+  "name": "o2c.externalapis",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "ui5 serve --open index.html"
+  },
+  "devDependencies": {}
+}

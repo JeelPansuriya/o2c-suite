@@ -154,6 +154,20 @@
                                 </TileContent>
                             </GenericTile>
 
+                            <GenericTile
+                                header="External APIs"
+                                subheader="SEGW customer and RAP product services via CAP"
+                                frameType="TwoByOne"
+                                class="navTile tileExternal"
+                                press="onTilePress">
+                                <customData>
+                                    <core:CustomData key="target" value="externalapis"/>
+                                </customData>
+                                <TileContent>
+                                    <NumericContent icon="sap-icon://chain-link" value="CAP" withMargin="false"/>
+                                </TileContent>
+                            </GenericTile>
+
                             <!-- <GenericTile
                                 header="Analytics"
                                 subheader="Explore performance and order insights"

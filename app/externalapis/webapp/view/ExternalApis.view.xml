@@ -1,0 +1,141 @@
+<mvc:View
+    controllerName="o2c.externalapis.controller.ExternalApis"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+
+    <App>
+        <Page title="External API Integration" class="externalApiPage">
+            <headerContent>
+                <Button icon="sap-icon://home" tooltip="Home" press=".onHome"/>
+            </headerContent>
+            <content>
+                <IconTabBar class="externalTabs" expanded="true">
+                    <items>
+                        <IconTabFilter text="SEGW Customers" icon="sap-icon://customer">
+                            <VBox class="tabShell">
+                                <MessageStrip
+                                    text="Data flows through CAP: /odata/v4/external-api/ApiCustomers, then CAP calls ZCUSTOMER_SRV_O2C_SRV/CustomerSet."
+                                    type="Information"
+                                    showIcon="true"/>
+
+                                <OverflowToolbar>
+                                    <Title text="CustomerSet" level="H2"/>
+                                    <ToolbarSpacer/>
+                                    <Button icon="sap-icon://refresh" tooltip="Refresh" press=".onRefreshCustomers"/>
+                                    <Button text="Save" icon="sap-icon://save" type="Emphasized" press=".onSaveCustomer"/>
+                                    <Button text="Delete" icon="sap-icon://delete" type="Reject" press=".onDeleteCustomer"/>
+                                    <Button icon="sap-icon://clear-filter" tooltip="Clear form" press=".onClearCustomer"/>
+                                </OverflowToolbar>
+
+                                <f:SimpleForm editable="true" layout="ColumnLayout" columnsM="2" columnsL="3" columnsXL="3">
+                                    <Label text="Customer ID"/>
+                                    <Input value="{/customerForm/CustomerId}" placeholder="C010"/>
+                                    <Label text="Customer Name"/>
+                                    <Input value="{/customerForm/CustomerName}"/>
+                                    <Label text="Email"/>
+                                    <Input value="{/customerForm/Email}" type="Email"/>
+                                    <Label text="Phone"/>
+                                    <Input value="{/customerForm/Phone}" type="Tel"/>
+                                    <Label text="Address"/>
+                                    <Input value="{/customerForm/Address}"/>
+                                    <Label text="Credit Limit"/>
+                                    <Input value="{/customerForm/CreditLimit}" type="Number"/>
+                                    <Label text="Used Credit"/>
+                                    <Input value="{/customerForm/UsedCredit}" type="Number"/>
+                                    <Label text="Status"/>
+                                    <Input value="{/customerForm/Status}"/>
+                                </f:SimpleForm>
+
+                                <Table items="{/customers}" mode="SingleSelectMaster" selectionChange=".onCustomerSelect" growing="true">
+                                    <columns>
+                                        <Column><Text text="ID"/></Column>
+                                        <Column><Text text="Name"/></Column>
+                                        <Column><Text text="Email"/></Column>
+                                        <Column><Text text="Phone"/></Column>
+                                        <Column><Text text="Credit Limit"/></Column>
+                                        <Column><Text text="Used Credit"/></Column>
+                                        <Column><Text text="Status"/></Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem type="Active" press=".onCustomerRowPress">
+                                            <cells>
+                                                <ObjectIdentifier title="{CustomerId}"/>
+                                                <Text text="{CustomerName}"/>
+                                                <Text text="{Email}"/>
+                                                <Text text="{Phone}"/>
+                                                <ObjectNumber number="{CreditLimit}"/>
+                                                <ObjectNumber number="{UsedCredit}"/>
+                                                <ObjectStatus text="{Status}"/>
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </VBox>
+                        </IconTabFilter>
+
+                        <IconTabFilter text="RAP Products" icon="sap-icon://product">
+                            <VBox class="tabShell">
+                                <MessageStrip
+                                    text="Product CRUD is wired to CAP as /odata/v4/external-api/ApiProducts. Add PRODUCT_API_URL later and this page will call your RAP service."
+                                    type="Warning"
+                                    showIcon="true"/>
+
+                                <OverflowToolbar>
+                                    <Title text="RAP Product API" level="H2"/>
+                                    <ToolbarSpacer/>
+                                    <Button icon="sap-icon://refresh" tooltip="Refresh" press=".onRefreshProducts"/>
+                                    <Button text="Save" icon="sap-icon://save" type="Emphasized" press=".onSaveProduct"/>
+                                    <Button text="Delete" icon="sap-icon://delete" type="Reject" press=".onDeleteProduct"/>
+                                    <Button icon="sap-icon://clear-filter" tooltip="Clear form" press=".onClearProduct"/>
+                                </OverflowToolbar>
+
+                                <f:SimpleForm editable="true" layout="ColumnLayout" columnsM="2" columnsL="3" columnsXL="3">
+                                    <Label text="Product ID"/>
+                                    <Input value="{/productForm/ProductId}" placeholder="Auto generated on create"/>
+                                    <Label text="Product Name"/>
+                                    <Input value="{/productForm/ProductName}"/>
+                                    <Label text="Category"/>
+                                    <Input value="{/productForm/Category}"/>
+                                    <Label text="Price"/>
+                                    <Input value="{/productForm/Price}" type="Number"/>
+                                    <Label text="Currency"/>
+                                    <Input value="{/productForm/Currency}" placeholder="INR"/>
+                                    <Label text="Stock"/>
+                                    <Input value="{/productForm/Stock}" type="Number"/>
+                                    <Label text="Status"/>
+                                    <Input value="{/productForm/Status}"/>
+                                </f:SimpleForm>
+
+                                <Table items="{/products}" mode="SingleSelectMaster" selectionChange=".onProductSelect" growing="true">
+                                    <columns>
+                                        <Column><Text text="ID"/></Column>
+                                        <Column><Text text="Name"/></Column>
+                                        <Column><Text text="Category"/></Column>
+                                        <Column><Text text="Price"/></Column>
+                                        <Column><Text text="Currency"/></Column>
+                                        <Column><Text text="Stock"/></Column>
+                                        <Column><Text text="Status"/></Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem type="Active" press=".onProductRowPress">
+                                            <cells>
+                                                <ObjectIdentifier title="{ProductId}"/>
+                                                <Text text="{ProductName}"/>
+                                                <Text text="{Category}"/>
+                                                <ObjectNumber number="{Price}"/>
+                                                <Text text="{Currency}"/>
+                                                <ObjectNumber number="{Stock}"/>
+                                                <ObjectStatus text="{Status}"/>
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </VBox>
+                        </IconTabFilter>
+                    </items>
+                </IconTabBar>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

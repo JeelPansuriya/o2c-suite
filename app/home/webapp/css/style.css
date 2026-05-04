@@ -158,6 +158,7 @@
 .tileInvoices { --tileAccent: #256f8f; }
 .tilePayments { --tileAccent: #107e3e; }
 .tileReports { --tileAccent: #6a6d70; }
+.tileExternal { --tileAccent: #7a5100; }
 .tileAnalytics { --tileAccent: #d14900; }
 
 @media (max-width: 900px) {

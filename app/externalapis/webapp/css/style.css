@@ -1,0 +1,32 @@
+.externalApiPage,
+.sapMPage.externalApiPage {
+    background: #f5f7fa !important;
+}
+
+.externalTabs {
+    width: min(1220px, calc(100% - 2rem));
+    margin: 1rem auto 2rem;
+}
+
+.tabShell {
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.tabShell .sapUiForm {
+    padding: 1rem;
+    border: 1px solid #d9e2ec;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.tabShell .sapMListTbl {
+    border: 1px solid #d9e2ec;
+}
+
+@media (max-width: 600px) {
+    .externalTabs {
+        width: calc(100% - 0.5rem);
+        margin-top: 0.25rem;
+    }
+}
